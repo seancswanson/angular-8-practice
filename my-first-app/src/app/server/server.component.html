@@ -1,4 +1,4 @@
-<p>
-  {{ "Server" }} with the ID of {{ serverId }} is currently
-  {{ getServerStatus() }}
+<p [ngClass]="serverStatus === 'offline' ? 'offline' : 'online'">
+  {{ "Server " + serverName }} / ID <span>{{ serverId }}</span> is currently
+  <span>{{ getServerStatus() }}</span>
 </p>

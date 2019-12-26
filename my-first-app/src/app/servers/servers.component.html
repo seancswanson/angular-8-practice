@@ -12,5 +12,7 @@
   <ng-template #noServer><p>No servers are being created.</p></ng-template>
 </div>
 <hr />
-<app-server></app-server>
-<app-server></app-server>
+<app-server
+  *ngFor="let server of servers"
+  [serverName]="server.serverName"
+></app-server>
