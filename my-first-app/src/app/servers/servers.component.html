@@ -8,7 +8,8 @@
   >
     Add New Server{{ serverName ? ": " + serverName.trim() : " " }}
   </button>
-  <p *ngIf="serverCreated">{{ serverCreationStatus }}</p>
+  <p *ngIf="serverCreated; else noServer">{{ serverCreationStatus }}</p>
+  <ng-template #noServer><p>No servers are being created.</p></ng-template>
 </div>
 <hr />
 <app-server></app-server>
