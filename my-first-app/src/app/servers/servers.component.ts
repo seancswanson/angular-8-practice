@@ -6,6 +6,7 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./servers.component.css"]
 })
 export class ServersComponent implements OnInit {
+  displayDetails: boolean;
   allowNewServer: boolean;
   serverCreated: boolean;
   serverCreationStatus: string = "No server was created.";
@@ -14,6 +15,7 @@ export class ServersComponent implements OnInit {
     { serverName: "Testserver1" },
     { serverName: "Testserver2" }
   ];
+  clickLog: string[];
 
   constructor() {
     setTimeout(() => {
@@ -22,8 +24,10 @@ export class ServersComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.displayDetails = false;
     this.allowNewServer = false;
     this.serverCreated = false;
+    this.clickLog = [];
   }
 
   onCreateServer(args) {
@@ -37,5 +41,12 @@ export class ServersComponent implements OnInit {
       this.serverCreated = false;
     }, 2000);
     console.log(args);
+  }
+
+  onDisplayDetailsClick(args) {
+    console.log(args);
+    let now = new Date();
+    this.clickLog.push(now.toString());
+    this.displayDetails = !this.displayDetails;
   }
 }

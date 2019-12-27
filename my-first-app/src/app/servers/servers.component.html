@@ -1,3 +1,18 @@
+<button (click)="onDisplayDetailsClick($event)" class="btn btn-primary">
+  Display Details
+</button>
+<h4 *ngIf="displayDetails">Grippin' wood grain.</h4>
+<ol>
+  <li
+    *ngFor="let time of clickLog; let i = index"
+    [ngStyle]="{ background: i >= 5 ? 'blue' : 'pink' }"
+    [ngClass]="{ 'after-five': i >= 5 }"
+  >
+    {{ time }}
+  </li>
+</ol>
+
+<hr />
 <div class="container">
   <label for="serverName">Server Name</label>
   <input class="form-control" type="text" [(ngModel)]="serverName" trim />
